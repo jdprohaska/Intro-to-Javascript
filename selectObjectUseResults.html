@@ -1,0 +1,111 @@
+<html>
+
+<head>
+
+    <title>WDV221 Intro Javascript</title>
+
+    <!--
+        This page demonstrates some ways that you might use the information from a drop down list for within a script.
+
+        The examples include:
+        looking up a value in a parallel array
+        Using a value in a calculations
+        Using the text of the drop down to look for something in an array
+
+        Product names:  "Pen", "Paper", "Pencil"
+        Product numbers: "penBL12", "wht500", "mech07mm"
+        Produc prices: 1.99, 5.99, 0.23
+    -->
+
+    <script>
+
+        let productNames = ["Pen", "Paper", "Pencil"];
+        let productNumbers = ["penBL12", "wht500", "mech07mm"];
+        let productPrices = [1.99, 5.99, 0.23];
+
+    </script>
+
+    <script>
+
+        function usSelectInformation(inSelectId, inExample){
+           // alert("inside displaySelectInformation()");
+
+            let selectObject = document.querySelector("#"+inSelectId);      //shortcut to access the select object
+
+            let selIndex = selectObject.selectedIndex;                      //the index of the selected option
+            document.querySelector("#displayIndex" + inExample).innerHTML = selIndex;  
+
+            let selValue = selectObject.value;                              //the value of the select object
+            document.querySelector("#displayValue" + inExample).innerHTML = selValue;
+
+            //productsSel.options[productsSel.selectedIndex].text;
+
+            let selText = selectObject.options[selectObject.selectedIndex].text;    //the text of the selected option
+            document.querySelector("#displayText" + inExample).innerHTML = selText;    
+        }
+
+
+
+
+    </script>
+
+</head>
+
+<body>
+
+    <h1>WDV221 Intro Javascript</h1>
+    <h2>Arrays with the Select element and Select object</h2>
+    <h3>Using information from a select object/drow down list</h3>
+
+    <p>This page demonstrates some examples of how to use the information you can get from a drop down list. This could include looking up information in a corresponding (parallel) array, using the selected values in a calculation (prices, sales tax, inventory count) or displaying the information on the page. </p> 
+
+    <p>These examples will use a drop down that has a default option and one that does not. At this point it does not matter if the drop down is hard coded in HTML or populated with Javascript. The presence of the default option does make a difference when using the selectedIndex to look up corresponding values in a parallel array. 
+    </p>
+
+    <p>The most common uses for information from the SELECT object
+        <ul>
+            <li>Use the <strong>index</strong> of the selected option for looking values in a parallel array</li>
+            <li>Use the <strong>value</strong> of the selected option in a calculation</li>
+            <li>Use the <strong>text</strong> or words of the selected option to lookup a value</li>
+        </ul>
+    </p>
+
+    <!-- Example #1 HTML drop down using a value attribute on the option elements-->
+
+    <h3>Example #1  Drop Down using the VALUE attribute - HTML</h3>
+    <p>
+        <label for="selectProduct2">Select a Product:</label>
+        <select name="selectProduct2" id="selectProduct2" onchange="usSelectInformation('selectProduct2',2)">
+            <option value="penBL12">Pen</option>
+            <option value="wht500">Paper</option>
+            <option value="mech07mm">Pencil</option>
+        </select>
+    </p>
+
+    <h3>Example #2 Results</h3>
+    <p>The product price of the selected option: <span id="displayIndex2"></span></p>
+    <p>The value of the selected option: <span id="displayValue2"></span></p>
+    <p>The text of the selected option: <span id="displayText2"></span></p>   
+
+    <!-- Example #2 Drop down using a value attribute on the option elements populated by Javascritpt -->
+
+    <h3>Example #2 Drop Down with a Default Option - Javascript</h3>
+    <p>
+        <label for="selectProduct3">Select a Product:</label>
+        <select name="selectProduct3" id="selectProduct3" onchange="displaySelectInformation('selectProduct3',3)">
+            <option value="">Please Select a Product</option>
+            <script>
+                for(let x=0; x<productNames.length; x++){
+                    document.write("<option value='" + productNumbers[x] + "''>" + productNames[x] + "</option>");
+                }
+            </script>
+        </select>
+    </p>
+
+    <h3>Example #3 Results</h3>
+    <p>The index of the selected option: <span id="displayIndex3"></span></p>
+    <p>The value of the selected option: <span id="displayValue3"></span></p>
+    <p>The text of the selected option: <span id="displayText3"></span></p>
+
+</body>
+</html>

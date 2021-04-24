@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript</title>
+
+<script>
+
+function displayLarger()
+{
+	//alert("inside displayLarger()");
+	
+	var inValue1 = document.getElementById("value1").value;
+	
+	var inValue2 = document.getElementById("value2").value;
+	
+	if (inValue1 > inValue2)
+	{
+		document.getElementById("results").innerHTML = inValue1;	//display the larger number	
+	}
+	else															//value2 must be larger??
+	{								
+		document.getElementById("results").innerHTML = inValue2;	//display the larger number			
+	}
+}//end displayLarger()
+
+
+function displaySmaller()
+{
+	//alert("inside displaySmaller()");	
+	
+	var inValue1 = document.getElementById("value1").value;
+	
+	var inValue2 = document.getElementById("value2").value;
+	
+	if (inValue1 < inValue2)
+	{
+		document.getElementById("results").innerHTML = inValue1;	//display the larger number	
+	}
+	else															//value2 must be larger??
+	{	
+		if (inValue2 < inValue1)
+		{							
+			document.getElementById("results").innerHTML = inValue2;	//display the larger number	
+		}
+		else
+		{
+			document.getElementById("results").innerHTML = "Unknown";	
+		}
+	}	
+}//end displayerSmaller()
+
+
+function displayEqual(){
+	
+	//alert("inside displayEqual()");	
+	
+	var inValue1 = document.getElementById("value1").value;
+	
+	var inValue2 = document.getElementById("value2").value;
+	
+	if (inValue1 == inValue2)
+	{
+		document.getElementById("results").innerHTML = "Equal";	//display the larger number	
+	}
+	else															//value2 must be larger??
+	{								
+		document.getElementById("results").innerHTML = "Not Equal";	//display the larger number			
+	}		
+}//end displayEqual()
+
+
+function findColor()
+{
+	//alert("inside findColor()");
+	
+	var inColor1 = document.getElementById("color1").value;	
+		
+	switch ( inColor1.toLowerCase() ) {
+		
+		case "red":
+			document.getElementById("colorResults").innerHTML = "Match";
+			break;															//stops the switch statement
+		case "green":
+			document.getElementById("colorResults").innerHTML = "Match";
+			break;				
+		case "blue":
+			document.getElementById("colorResults").innerHTML = "Match";
+			break;	
+		default:
+			document.getElementById("colorResults").innerHTML = "Not Found";				
+	}
+		
+}//end findColor()
+</script>
+
+<script src="resetFormFunctions.js"></script>
+
+
+</head>
+
+<body>
+<h2>WDV221 Intro Javascript</h2>
+<h3>Project-4 Comparisons and If Statements - Code Examples</h3>
+<hr />
+
+<h3>IF Statement Example</h3>
+<form id="form1" name="form1" method="post" action="">
+  <p>Use this form to gather input and display results.</p>
+  <p>Value 1: 
+    <input type="text" name="value1" id="value1" />
+  </p>
+  <p>Value 2: 
+    <input type="text" name="value2" id="value2" />
+  </p>
+  <p>Result: <span id="results"></span>
+  </p>
+  <p>
+    <input type="button" name="Reset" id="button" value="Reset" onClick="resetNumberForm()" />
+  </p>
+  <p>
+    <input type="button" name="button2" id="button2" value="Display Largest Number" onClick="displayLarger()" />
+ Enter a number in Value 1 and Value 2. Display the larger number in the Result field of the form above.</p>
+<p>
+  <input type="button" name="button" id="button3" value="Display Smallest Number" onClick="displaySmaller()" />
+Enter a number in Value 1 and Value 2. Display the smaller number in the Result field of the form above.</p>
+<p>
+  <input type="button" name="button3" id="button4" value="Are they Equal" onClick="displayEqual()" />
+  Enter a number in Value 1 and Value 2. Display &quot;Equal&quot;in the Result field of the form above if both values are the same otherwise display &quot;Not Equal&quot;. 
+</p>
+</form>
+<p>&nbsp;</p>
+
+
+<h3>Switch Statement Example</h3>
+<form id="form2" name="form2" method="post" action="">
+  <p>Color: 
+    <input type="text" name="color1" id="color1" />
+  </p>
+  <p>Result: <span id="colorResults"></span></p>
+  <p>
+    <input type="button" name="button7" id="button7" value="Match Color" onClick="findColor()" />
+    <input type="button" name="button8" id="button8" value="Reset" onClick="resetColorForm()" />
+  </p>
+</form>
+<p>The function matchColor( ) will take the color entered in the Color field and see if it is standard color. The standard colors are Red, Green and Blue. The function will display &quot;Match&quot; if the color entered is one of the standard colors or &quot;Not Found&quot; if it isn't. The comparison is case insensitive.</p>
+<p>&nbsp;</p>
+</body>
+</html>

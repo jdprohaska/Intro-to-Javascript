@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>WDV221 Intro Javascript - Skill Test Preferences</title>
+        <style>
+
+            #container {
+                width:1028px;
+                margin:auto;
+                
+            }
+
+            ul	{
+                list-style:none;	
+            }
+
+            body {
+              background-color: aliceblue;
+            }
+        </style>
+
+        <script>
+
+            function changeColor(inColor) {
+                document.querySelector("body").style.backgroundColor = inColor;	
+            }
+
+
+
+        </script>
+
+    </head>
+
+    <body>
+
+        <div id="container">
+
+            <header>
+                <h1>WDV221 Intro Javascript</h1>
+                <h2>Skill Test - Setting Preferences</h2>
+            </header>
+
+
+            <section>
+                <h3>Instructions: Change background colors:</h3>
+                <ol>
+                    <li>Modify the page as needed to change the background color when a different color is selected.</li>
+                    <li>Use the changeColor( ) function to change the background color when a button is selected.</li>
+                </ol>
+
+                <ul>Choose your background color:
+                    <li>
+                        <input type="radio" name="radioButtons" id="radio" value="red" onchange="changeColor('red')">
+                        <label for="radio">Red</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radioButtons" id="radio3" value="green" onchange="changeColor('green')">
+                        <label for="radio3">Green </label>
+                    </li>
+                    <li>
+                        <input type="radio" name="radioButtons" id="radio2" value="blue" onchange="changeColor('blue')">
+                        <label for="radio2">Blue</label>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Instructions: Change font selection:</h3>    
+                <ol>
+                    <li>Create an array called pageFonts that contains at least three fonts.</li>
+                    <li>Use javascript to populate a drop down list of available fonts.</li>
+                    <li>Create a function that will allow the user to select the font of their choice. Once selected, all text on the page will change to the selected font.    </li>
+                </ol> 
+                <p>
+                    Choose your font:
+                    <select name="selectFont" id="selectFont" onchange="changeFont()">
+                    </select>
+                </p>
+            </section>
+
+        </div>
+        <script>
+            //Fonts
+            var fonts = ['Verdana', 'Courier New', 'Calibri', 'Impact'];
+            var fontsName = ['Verdana', 'Courier New','Calibri', 'Impact'];
+            
+            var select = document.getElementById("selectFont");
+            for(var i = 0; i < fonts.length; i++) {
+                var option = document.createElement("option");
+                option.textContent = fontsName[i];
+                option.value = fonts[i];
+                select.add(option);
+            }
+            
+            function changeFont() {
+                var font = document.getElementById("selectFont").value;
+                console.log(font);
+                document.querySelector("body").style.fontFamily = font;
+            }
+        </script>
+    </body>
+</html>

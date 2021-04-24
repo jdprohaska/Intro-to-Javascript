@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms and textfields</title>
+</head>
+
+<script>
+
+function addNumbers() {
+   // alert ("inside addNumbers()");
+    let x = parseInt( document.querySelector("#invalue1").value );
+    //x = parseInt(x); // this modifies x correctly.
+    let y = document.querySelector("#invalue2").value;
+    let result = x + parseInt (y); 
+    document.querySelector("#addResult") .innerHTML = result; //move to output
+}
+
+function subtractNumbers() {
+    alert ("inside subtractNumbers()");
+    document.querySelector("#subtractResult").innerHTML = 
+        parseInt (document.querySelector("invalue1").value ) -
+        parseINT (document.querySelector("#invalue2").value );
+     //move to output
+}
+
+function clearDesplays() {
+    alert ("inside clearDesplay()");
+    document.querySelector("#addResult").innerHTML = " "; //clear
+    document.querySelector("#subtractResult").innerHTML = " "; 
+}
+
+
+</script>
+
+<body>
+
+    <form action="#" method="post">
+        <p>
+            <label>
+                input 1:
+                <input type="text" name="invalue1" id="invalue1">
+            </label>
+        </p>
+        <p>
+            <label>
+                input 2:
+                <input type="text" name="invalue2" id="invalue2">
+
+            </label>
+        </p>
+        <p>
+            <input type="button" value="submit">
+            <input type="button" value="subtract Numbers">
+            <input type="reset" value="clear" onclick="clearDesplays()">
+        </p>
+
+
+
+
+
+
+    </form>
+    <p>
+		addition result: <span id="addResult"></span>
+	</p>
+	<p>
+		subtraction result: <span id="subtractResult"></span>
+	</p>
+
+
+
+</body>
+
+</html>

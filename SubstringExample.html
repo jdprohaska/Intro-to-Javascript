@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+
+        function displayName(inFirstName) {
+            alert(inFirstName); //display value of local variable
+
+        }
+
+        displayName(); //call the function in the script
+        displayName("josh"); //call function with input parameter
+        displayName (42); //meaning of life
+
+        let firstName = "justin"
+        displayName(firstName); //pass a variable value
+
+        let email = "jdprohaska@dmacc.com";
+
+        let atSymbol = email.indexOf ("@") ; //find location of @ symbol
+        
+        console.log(atSymbol); //prove the indexOf worked
+
+        console.log(email.slice(0, atSymbol) ); //display value of the return.
+        console.log(email.slice(11, 20) ); //display value of the return.
+
+        console.log( email.substr(atSymbol));
+
+        console.log( "slice -atSymbol " + email.slice (-atSymbol) )
+        
+
+
+    
+    
+    
+    
+    
+    </script>
+    
+</body>
+</html>

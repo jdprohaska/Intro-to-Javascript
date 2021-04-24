@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+<style>
+body {
+  background-color: #591f0a;
+  background-image: linear-gradient(black, #591f0a);
+  height: 1600px;
+  margin: 50px;
+}
+
+.container {
+  
+  margin: auto;
+  padding: 10%;
+  width: 75%;
+  border-radius: 15px;
+  background-color: #efa00b;
+  background-image: linear-gradient(#d65108, #efa00b);
+  border: 5px solid #0267c1;
+  box-shadow: 5px 10px;
+}
+
+
+</style>
+<script>
+
+  let schoolName = "Des Moines Area Community College";
+  let name1 = "Mary";
+  let name2 = "Smith";
+  const totalSales = 3435.6;
+  let today = new Date();
+  
+  function processString(inValue) {
+  
+  console.log(inValue.length);
+  console.log(inValue.toUpperCase());
+  console.log(inValue.substr(0, 5));
+  
+  }
+  
+  function printName(firstName, lastName) {
+  
+  return ("<p> " + firstName + " " + lastName + "</p>") +
+  "<p> " + lastName + ", " + firstName + "</p>" +
+  "<p> " + lastName.toUpperCase() + ", " + firstName + "</p>";
+  }
+  
+    
+  function fullDate(inDate) {
+  let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  let months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  return days[ inDate.getDay() ] + ", " +
+  months[ inDate.getMonth() ] + " " +
+  inDate.getDate() + ", " +
+  inDate.getFullYear();
+  
+  }
+    
+  function shortDate(currentDate) {
+  
+     return (currentDate.getMonth() + 1) + 
+      "/" +  currentDate.getDate() +
+      "/" +  currentDate.getFullYear();
+  
+  }	
+  
+  </script>
+</head>
+
+<body>
+  <div class="container">
+<h1>WDV2221 Intro Javascript</h1>
+<h2>Unit-4 Assignment - Functions with Parameters </h2>
+<h3>Directions:</h3>
+<p>Problem 1</p>
+<p>a. Create a global variable called schoolName. Assign it an initial value of &quot;Des Moines Area Community College&quot;.</p>
+<p>b. Create a function called processString( ).</p>
+<ul>
+  <li>the function will accept one input parameter called inValue</li>
+  <li>use the String.length property to display the number of characters to the console</li>
+  <li>use the toUpperCase( ) to display the string in capital letters to the console</li>
+  <li>display the first five letters of the string to the console</li>
+</ul>
+<p>c. Call this function using a button and the onclick event handler. Pass in the schoolName variable as the parameter.</p>
+<p>
+	<input type="button" name="button" id="button" value="Call Function" onClick="processString(schoolName)">
+  </p>
+<p>Problem  2</p>
+<p>a. Create two global variables. One called name1 and assign it a value of &quot;Mary&quot;. The other called name2 and assign it a value of &quot;Smith&quot;.</p>
+<p>b.  Create a function called printName( ).</p>
+<ul>
+  <li>the function will accept two parameters, firstName and lastName.</li>
+  <li>concatenate the names into a single string formatted as "firstName lastName" and display the result to the document</li>
+  <li>concatenate the names into a single string formatted as "lastName, firstName" and display the result to the document</li>
+  <li>concatenate the names into a single string formatted as "lastName(all capitals), firstName" and display the result to the document</li>
+</ul>
+<p>c. Call this function during runtime. Pass in the name1 and name2 variables as the parameters.</p>
+<p>
+  <script>
+
+    document.write(printName(name1, name2) );
+    
+    </script>
+</p>
+<p>Problem  3 </p>
+<p>a. Create a global variable called totalSales. Assign it a value of 3435.6. It should be numeric data type.</p>
+<p>b. Use the provided currency formatting function to display totalSales formatted as currency in the following line. </p>
+<h3>Your Total Sales:
+  <script>
+
+    document.write(new Intl.NumberFormat(
+      'en-US',
+      { style: 'currency', currency:'USD' }).format(totalSales))
+    
+    </script> 
+    </h3>
+<p>Problem 4</p>
+<p>a. Use the provided date functions and concatenation to display today's date in the following format <strong>Monday, January 2, 2018</strong>. </p>
+<p>Today's date: 
+  <script>
+
+    document.write(fullDate(today) );
+    
+    </script>
+    
+</p>
+<p>Problem 5</p>
+<p>a. Use the provided date functions and concatenation to display today's date in the following format &quot;mm/dd/yyy&quot;.</p>
+<p>Today's date:
+  <script>
+
+    document.write(shortDate(today) );
+    
+    </script>
+   </p>
+<p>&nbsp;</p>
+<p><br>
+</p>
+</div>
+</body>
+</html>

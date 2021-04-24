@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random number generator</title>
+    <script>
+function numberGenerator(){
+		document.getElementById("randomNumber").innerHTML = Math.floor(Math.random() * 10) + 1;
+	}
+ </script>
+</head>
+<body>
+
+    <h1>WDV221 Intro to Javascript</h1>
+    <h2>Random number generator</h2>
+    <p>
+    <input type="button" name="Random" value="Random" onclick="numberGenerator()">
+    </p>
+    <p id="randomNumber">
+
+    </p>
+    
+</body>
+</html>

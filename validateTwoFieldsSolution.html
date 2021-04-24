@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDV221 Intro Javascript</title>
+
+    <style>
+        .errMsg {
+            color:red;
+            font-weight: 200;
+        }
+
+    </style>
+
+    <script>
+
+        let validForm = true;           //a flag to track any validation errors, must be global scope
+
+        function processForm(){
+            //this will run when the form is submitted. 
+            //It will run the validation and display the message
+            //alert("insides ProcessForm()");
+
+            validForm = true;           //assume form data is correct each time form submitted
+
+            resetForm();                    //clear message field each time
+
+            let inValue = document.querySelector("#first_name").value;
+            let returnMsg = validateName(inValue);
+            document.querySelector("#displayMsg").innerHTML = returnMsg;
+
+            inValue = document.querySelector("#input_quantity").value;
+            returnMsg = validateInputQuantity(inValue);
+            //alert("returnMsg from inputQuantity " + returnMsg);
+            document.querySelector("#input_quantity_error").innerHTML = returnMsg;
+
+            if(validForm){
+                //All validations have passed. You are ready to submit the form to the server
+                //document.querySelector("form").submit();  //will submit the form
+                //Display a confirmation message to your customer
+                console.log("Form is Valid. Your order has been submitted. Thank you!");
+            }
+        }
+
+        function validateName(inValue) {
+            //this function will validate the form input.
+            //It will display a message based upon the validation of the input.
+            //alert("inside validateName()");
+
+            inValue = inValue.trim();           //remove spaces from both ends of input
+
+            if(inValue=="" || inValue==" ") {
+                validForm = false;              //failed validation - invalid form data
+                return "Input Required Name";
+            }
+
+			if( inValue.indexOf("/")!= -1 || inValue.indexOf("\\")!= -1 || inValue.indexOf("'")!= -1){
+                validForm = false;              //failed validation - invalid form data
+                return "Invalid Content";
+			}
+			
+			if( !isNaN(inValue) ) {
+                validForm = false;              //failed validation - invalid form data
+				return "Invalid Content";
+			}
+			
+			return "Valid Content";			    //return default message
+        }
+
+        function validateInputQuantity(inValue) {
+            //this function will validate the input quantity.
+            //It will display a message based upon the validation result in the err field
+            //Input is required, must be numeric, cannot be less than 1, cannot be greater than 1K
+            /*     TDD Cases/tests
+                Inputs          Expected result
+                ""              "Input Required"
+                " "             "Input Required"
+                a               "Invalid Input"
+                5a              "Invalid Input"
+                b4              "Invalid Input"
+                1               ""
+                0               "Must order more than one"
+                -1              "Invalid Input"
+                1000            ""
+                1001            "Please contact Sales for orders over 1000 units"
+            */
+
+            inValue = inValue.trim();       //remove spaces from both ends of input
+
+            if(inValue=="" || inValue==" ") {
+                validForm = false;              //failed validation - invalid form data
+                return "Input Required Quantity";
+            }
+
+            if(isNaN(inValue) ) {
+                validForm = false;              //failed validation - invalid form data
+                return "Invalid Input";
+            }
+
+            if(inValue == 0 || inValue < 0 ){
+                validForm = false;              //failed validation - invalid form data
+                return "Must order more than one";
+            }
+
+            if(inValue > 1000){
+                validForm = false;              //failed validation - invalid form data
+                return "Please contact Sales for orders over 1000 units"
+            }
+
+            return "Valid Input";               //Input passes all validations. TESTING
+            //return "";                        //Input passes all validations. No msg needed
+        }
+
+
+        function resetForm() {
+            //this function will run with the reset function to reset the form back to original view
+            //alert("inside resetForm()");
+            document.querySelector("#displayMsg").innerHTML = " ";    //empty display area
+            document.querySelector("#input_quantity_error").innerHTML = " "; 
+        }
+
+
+    </script>
+</head>
+<body>
+    <h1>WDV221 Intro to Javascript</h1>
+    <h2>UNIT-8 Testing and Validation</h2>
+    <h3>Testing the validateName( ) SOLUTION</h3>
+
+    <p>
+        Many forms have multiple fields and fields of different types. They must all pass validation before the form can be processed. 
+        There are many ways to validate a form. Validation on the client can be done using HTML as well as Javascript. This is one example. It only uses Javascript for the validation.
+    </p>
+    
+    <form method="POST" action="#">
+        <p>
+            <label for="first_name">First Name: 
+                <input name="first_name" id="first_name" type="text" >
+                <span class="errMsg" id="first_name_err"></span>
+            </label>  
+        </p>
+
+        <p>
+            <label for="displayMsg">Validation Message: 
+                <span id="displayMsg"></span>
+            </label>
+        </p>
+
+        <!-- another field with a different format technique-->
+        <p>
+            <label for="input_quantity">How many?:
+                <input name="input_quantity" id="input_quantity" type="text">
+                <span class="errMsg" id="input_quantity_error"></span>
+            </label>
+        </p>
+
+        <p>
+            <input type="button" value="Process Form" onclick="processForm()" >  
+        </p>
+        <p> 
+            <input type="reset" value="Try Again!" onclick="resetForm()">        
+        </p>
+
+
+
+
+    </form>
+</body>
+</html>

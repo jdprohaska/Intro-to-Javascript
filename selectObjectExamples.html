@@ -1,0 +1,113 @@
+<html>
+
+<head>
+
+    <title>WDV221 Intro Javascript</title>
+
+    <!--
+        This page demonstrates using the HTML SELECT element to create a drop down list.
+        
+        For each version the first example uses HTML.  The second example uses Javascript to dynamically populate the option elements.
+
+        All of the examples will use the same set of content. 
+
+        Product names:  "Pen", "Paper", "Pencil"
+        Product numbers: "penBL12", "wht500", "mech07mm"
+    -->
+
+    <script>
+
+        let productNames = ["Pen", "Paper", "Pencil"];
+        let productNumbers = ["penBL12", "wht500", "mech07mm"];
+
+    </script>
+
+</head>
+
+<body>
+
+    <h1>WDV221 Intro Javascript</h1>
+    <h2>Arrays with the Select element and Select object</h2>
+    <h3>The HTML Select Element Example</h3>
+
+    <p>This page demonstrates using HTML to create a drop down box using the HTML SELECT and OPTION elements.  For each example the first method uses HTML.  The second method uses Javascript and an array to dynamically create the OPTION element. </p>
+
+    <p>A Javascript array is commonly used to dynamically create or populate drop down elements on a web page. This allows the page content to change based upon the available information instead of having to be edited every time the content changes.</p>
+
+    <h3>Example #1  Basic Drop Down - HTML</h3>
+    <p>Using the HTML SELECT element and the OPTION elements to create and populate a drop down list.</p>
+    <p>
+        <label for="selectProduct">Select a Product:</label>
+        <select name="selectProduct" id="selectProduct">
+            <option>Pen</option>
+            <option>Paper</option>
+            <option>Pencil</option>
+        </select>
+    </p>
+
+    <h3>Example #1  Basic Drop Down - Javascript</h3>
+    <p>Using the HTML SELECT element and a Javascript loop/array to populate the options in the list.</p>
+    <p>
+        <label for="selectProduct">Select a Product:</label>
+        <select name="selectProduct" id="selectProduct">
+            <script>
+                for(let x=0; x<productNames.length; x++){
+                    document.write("<option>" + productNames[x] + "</option>");
+                }
+            </script>
+        </select>
+    </p>
+
+    <h3>Example #2  Drop Down using the VALUE attribute - HTML</h3>
+    <p>The value attribute is used to provide information related to the option. This allows you to describe an option to the user and then related information to the server for processing.  In this case the option describes a product but the form will send the product number of the selected option to the server.</p>
+    <p>
+        <label for="selectProduct">Select a Product:</label>
+        <select name="selectProduct" id="selectProduct">
+            <option value="penBL12">Pen</option>
+            <option value="wht500">Paper</option>
+            <option value="mech07mm">Pencil</option>
+        </select>
+    </p>
+
+    <h3>Example #2 Drop Down using the VALUE attribute - Javascript</h3>
+    <p>>A drop down using Javascript to populate the OPTION elements and the VALUE attributes</p>
+    <p>
+        <label for="selectProduct">Select a Product:</label>
+        <select name="selectProduct" id="selectProduct">
+            <script>
+                for(let x=0; x<productNames.length; x++){
+                    document.write("<option value='" + productNumbers[x] + "''>" + productNames[x] + "</option>");
+                }
+            </script>
+        </select>
+    </p>    
+    
+   
+    <h3>Example #3 Drop Down with a Default Option - HTML</h3>
+    <p>HTML drop down using the value attribute with a default "Please Select" option. The option is a message to the user that they need to do something.  It is also used to validate that they actually made a choice instead of taking the first option.</p>
+    <p>
+        <label for="selectProduct">Select a Product:</label>
+        <select name="selectProduct" id="selectProduct">
+            <option>Please Select a Product</option>
+            <option value="penBL12">Pen</option>
+            <option value="wht500">Paper</option>
+            <option value="mech07mm">Pencil</option>
+        </select>
+    </p>
+
+    <h3>Example #3 Drop Down with a Default Option - Javascript</h3>
+    <p>HTML drop down using Javascript to populate the drop down with a default "Please Select" option. Note the value of the default option is often set to "" or 0. This is used to validate the drop down field.  If the value is "" or 0 the user probably did not make a selection. </p>
+    <p>
+        <label for="selectProduct">Select a Product:</label>
+        <select name="selectProduct" id="selectProduct">
+            <option value="">Please Select a Product</option>
+            <script>
+                for(let x=0; x<productNames.length; x++){
+                    document.write("<option value='" + productNumbers[x] + "''>" + productNames[x] + "</option>");
+                }
+            </script>
+        </select>
+    </p>
+
+</body>
+</html>

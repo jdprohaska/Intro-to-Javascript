@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript - Operators and Textfields Assignment</title>
+
+<style>
+
+body {background-color:#233d4d;
+}
+
+
+.container {
+  width: 70%;
+  padding: 20px;
+  margin: 50px auto;
+  background-image: linear-gradient(#f5b0cb,#dc6acf);
+  border: 5px solid #fe7f2d;
+  border-radius: 15px;
+
+}
+
+
+</style>
+
+
+<script>
+	var count = 0;	
+  function displayValueOne(){
+		let inN1 = document.getElementById("n1").value;	      	//1. recieves the content by the user in the textfield.
+		document.getElementById("outPut1").value = inN1;		    //1. adds n1 to the form. 
+	}
+
+	function displayValueTwo(){
+		let inN2 = document.getElementById("n2").value;		      //2. recieves the content by the user in the textfield.	
+		document.getElementById("outPut2").value = inN2;	    	//2. adds n2 to the form.
+	}
+
+	function multiValue(){
+		let inN1 = document.getElementById("n1").value;		      //3. Takes content from first textfield.
+		let inN2 = document.getElementById("n2").value;	       	//3. Takes content from second textfield.
+		let multiSum = inN1 * inN2;							                //3. multiplies the variables and keeps them in multiSum.
+		document.getElementById("multiSum").value = multiSum;		//3. displays multiSum on the form.	
+	}
+	
+	function addValue(){
+		let inN1 = document.getElementById("n1").value;		      //4. Takes content from first textfield.
+		let inN2 = document.getElementById("n2").value;		      //4. Takes content from second textfield.
+		let addSum = parseFloat(inN1) + parseFloat(inN2);		    //4. parses the variables and then adds them.
+		document.getElementById("addSum").value = addSum;	    	//4. displays addSum on the form.	
+	}
+	
+	function inCount(){
+		count++;	//adds one to count 												
+		document.getElementById("incrementCount").value = count;//5. displays count on the form.
+	}
+</script>
+
+
+</head>
+
+<body>
+  <div class="container">
+  <h2>WDV221 Intro Javascript</h2>
+  <h3>Project 3 - Operators and Textfields - Assignment</h3>
+  <hr />
+  <p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment. </p>
+  <p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.</p>
+  <p>Using Blackboard submit this  Assignment.</p>
+  <hr />
+  <h3>Instructions</h3>
+  <p>Use the form fields for the input values. For each of the following exercises create a function what will be activated by the button.  </p>
+  <form id="form1" name="form1" method="post" action="">
+    <p>
+    <label for="n1">Enter a number for value1:
+      <input type="text" name="n1" id="n1"/>
+    </label>	
+    </p>
+    <p>
+    <label for="n2">Enter a number for value 2:
+      <input type="text" name="n2" id="n2"/>
+    </label>	
+    </p>
+    <p>1.
+      <input type="button" name="button" id="button" value="Display valueOne" onclick="displayValueOne()"/>		<!-- 1. calls function which puts 'num1' in display1 -->
+      <label for="outPut1">Display the value you entered for value1:
+        <input type="text" name="outPut1" id="outPut1"/>
+      </label>	
+    </p>
+    <p>2.
+      <input type="button" name="button" id="button" value="Display valueTwo" onclick="displayValueTwo()"/>		<!-- 2. calls function which puts 'num2' in display2 -->
+      <label for="OutPut2">Display the value you entered for value2:
+        <input type="text" name="outPut2" id="outPut2"/>
+      </label>	
+    </p>
+    <p>3.
+      <input type="button" name="button" id="button" value="multiply" onclick="multiValue()"/>				<!-- 3. calls function which calculates and puts 'product' in displayProduct -->
+      Display the value of value1 * value2:
+    <input type="text" name="multiSum" id="multiSum"/>
+    </p>
+    <p>4.
+      <input type="button" name="button" id="button" value="add" onclick="addValue()"/>			<!-- 4. calls function which parses variables, adds and puts 'sum' in displayProduct -->
+      Display the results of value1 + value2 in the following textfield.
+    <input type="text" name="addSum" id="addSum"/>
+    </p>
+    <p>5.
+      <input type="button" name="button" id="button" value="Increment count" onclick="inCount()"/>		<!-- increments 'count' and puts the value in incrementCount -->
+      Use the increment operator to add 1 to count and display the new value of count.
+    <input type="text" name="incrementCount" id="incrementCount"/>
+    </p>
+    <p>
+      <input type="reset" name="Reset" id="button" value="Reset">
+    </p>
+  </form>
+  <p>&nbsp;</p>
+  </div>
+  </body>
+  </html>

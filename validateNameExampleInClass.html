@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDV221 Intro Javascript</title>
+
+    <style>
+        .errMsg {
+            color:red;
+            font-weight: 200;
+        }
+
+    </style>
+
+    <script>
+
+        function processForm(){
+            //this will run when the form is submitted. 
+            //It will run the validation and display the message
+            //alert("insides ProcessForm()");
+
+            let inValue= document.querySelector("#first_name").value; //gets the input
+            //alert( validateName(inValue)); 	//for testing purposes
+			//assign the return message to the display area on the page
+			document.querySelector("#displayMsg").innerHTML = validateName(inValue);
+
+        }
+
+        function validateName(inValue) {
+            //this function will validate the form input.
+            //It will display a message based upon the validation of the input.
+            //alert("inside validateName()");
+			//alert("inValue contains " + inValue);	//prove the input was passed in
+			
+			if(inValue=="" || inValue.trim()==""){
+				return "Input Required";	//return a message 
+			}
+			
+			if( inValue.indexOf("/")!= -1 || inValue.indexOf("\\")!= -1 || inValue.indexOf("'")!= -1){
+				return "Invalid Content";
+			}
+			
+			if( !isNaN(inValue) ){
+				return "Invalid Content";
+			}
+			
+			return "Valid Content";			//return default message
+        }
+
+        function resetForm() {
+            //this function will run with the reset function to reset the form back to original view
+            alert("inside resetForm()");
+        }
+
+
+    </script>
+</head>
+<body>
+    <h1>WDV221 Intro to Javascript</h1>
+    <h2>UNIT-8 Testing and Validation</h2>
+    <h3>Testing the validateName( )</h3>
+    
+    <form method="POST" action="#">
+        <p>
+            <label for="first_name">First Name: 
+                <input name="first_name" id="first_name" type="text" >
+                <span class="errMsg" id="first_name_err"></span>
+            </label>  
+        </p>
+
+        <p>
+            <label for="displayMsg">Validation Message: 
+                <span id="displayMsg"></span>
+            </label>
+        </p>
+
+        <p>
+            <input type="button" value="Process Form" onclick="processForm()" >  
+        </p>
+        <p> 
+            <input type="reset" value="Try Again!" onclick="resetForm()">        
+        </p>
+
+    </form>
+</body>
+</html>

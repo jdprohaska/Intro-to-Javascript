@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>perameters and returns</title>
+    <script>
+
+        let productName = "book"; //global scope variable
+
+        //defines a function
+        function calculateDiscountAmount(salePrice, discountPercent) {
+           // let discountAmt = salePrice * discountPercent;
+           // return discountAmt;
+       
+            console.log(productName);
+       
+            return salePrice * discountPercent;
+       
+        }
+        
+            //use a function "call it"
+            console.log( calculateDiscountAmount (25, .1) );
+    
+    
+    </script>
+
+    <style>
+        body {
+            background-color: blanchedalmond;
+        }
+
+
+        h1, p {
+            text-align: center;
+            text-decoration: underline;
+        }
+    
+    </style>
+</head>
+<body class="container">
+    <h1>Perameters and returns</h1>
+    <p>Check the Console.Log</p>
+    
+</body>
+</html>

@@ -1,0 +1,142 @@
+<html>
+
+<head>
+
+    <title>WDV221 Intro Javascript</title>
+
+    <!--
+        This page displays the main information a developer would often need from a select object. 
+
+        When the SELECT element in rendered into the SELECT object of the DOM it has properties and methods available to it. Several of these properties are useful in scripts for further processing. 
+
+        NOTE:
+
+        When a select element is rendered into a SELECT object the option elements are also rendered into OPTION objects within the SELECT object. These options are stored as and array of options.  
+
+        This example will display the following properties of the SELECT object. 
+            .selectedIndex 
+            .value  (the value of the value property of the selected option OR the text of the option if no value attribute)
+
+        This example will display the following properites of the OPTION object.
+            .value
+            .text
+      
+
+        All of the examples will use the same set of content. 
+
+        Product names:  "Pen", "Paper", "Pencil"
+        Product numbers: "penBL12", "wht500", "mech07mm"
+
+        in a dropdown if you  do not have a value attribute the value will be the same as the text!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    -->
+
+    <script>
+
+        let productNames = ["Pen", "Paper", "Pencil"];
+        let productNumbers = ["penBL12", "wht500", "mech07mm"];
+
+    </script>
+
+    <script>
+
+        function displaySelectInformation(inSelectId, inExample){
+           // alert("inside displaySelectInformation()");
+
+            let selectObject = document.querySelector("#"+inSelectId);      //shortcut to access the select object
+
+            let selIndex = selectObject.selectedIndex;                      //the index of the selected option
+            document.querySelector("#displayIndex" + inExample).innerHTML = selIndex;  
+
+            let selValue = selectObject.value;                              //the value of the select object
+            document.querySelector("#displayValue" + inExample).innerHTML = selValue;
+
+            //productsSel.options[productsSel.selectedIndex].text;
+
+            let selText = selectObject.options[selectObject.selectedIndex].text;    //the text of the selected option
+            document.querySelector("#displayText" + inExample).innerHTML = selText;    
+        }
+
+
+
+
+    </script>
+
+</head>
+
+<body>
+
+    <h1>WDV221 Intro Javascript</h1>
+    <h2>Arrays with the Select element and Select object</h2>
+    <h3>The information from a Drop Down List</h3>
+
+    <p>The most common event handler used with drop down lists is the "onchange". This event handler fires when the user CHANGES a selection of a drop down list. A click on the drop down list will not fire the event.</p>
+
+    <p>Remember that the HTML Select element is rendered into a SELECT Object in the document object.  As a DOM object we can access it with Javascript.  As a DOM object it has properties(attributes) and methods available. For more information on the SELECT object see W3Schools <a href="https://www.w3schools.com/jsref/dom_obj_select.asp">SELECT Object</a> reference. </p>
+
+    <p>At the same time the Option elements are rendered into an array (collection) of OPTION objects. As a DOM object we can access the Option object with Javascript. For more information on the OPTION object see W3Schools <a href="https://www.w3schools.com/jsref/dom_obj_option.asp">OPTION Object</a> reference. </p>
+
+    <p>This page demonstrates the most common information you need from a drop down list.  The information is often used for additional processing based upon the user selection. This could include looking up information in a corresponding (parallel) array, using the selected values in a calculation (prices, sales tax, inventory count) or displaying the information on the page. </p> 
+
+    <p>The most common pieces of information used from the SELECT object
+        <ul>
+            <li>The <strong>index</strong> of the selected option</li>
+            <li>The <strong>value</strong> of the selected option</li>
+            <li>The <strong>text</strong> or words of the selected option</li>
+        </ul>
+    </p>
+
+    <h3>Example #1  Basic Drop Down - HTML</h3>
+    <p>
+        <label for="selectProduct1">Select a Product:</label>
+        <select name="selectProduct1" id="selectProduct1" onchange="displaySelectInformation('selectProduct1',1)">
+            <option>Pen</option>
+            <option>Paper</option>
+            <option>Pencil</option>
+        </select>
+    </p>
+
+    <h3>Example #1 Results</h3>
+    <p>The index of the selected option: <span id="displayIndex1"></span></p>
+    <p>The value of the selected option: <span id="displayValue1"></span></p>
+    <p>The text of the selected option: <span id="displayText1"></span></p>
+
+    <!-- Example #2 HTML drop down using a value attribute on the option elements-->
+
+    <h3>Example #2  Drop Down using the VALUE attribute - HTML</h3>
+    <p>
+        <label for="selectProduct2">Select a Product:</label>
+        <select name="selectProduct2" id="selectProduct2" onchange="displaySelectInformation('selectProduct2',2)">
+            <option value="penBL12">Pen</option>
+            <option value="wht500">Paper</option>
+            <option value="mech07mm">Pencil</option>
+        </select>
+    </p>
+
+    <h3>Example #2 Results</h3>
+    <p>The index of the selected option: <span id="displayIndex2"></span></p>
+    <p>The value of the selected option: <span id="displayValue2"></span></p>
+    <p>The text of the selected option: <span id="displayText2"></span></p>   
+
+    <!-- Example #3 Drop down using a value attribute on the option elements populated by Javascritpt -->
+
+    <h3>Example #3 Drop Down with a Default Option - Javascript</h3>
+    <p>HTML drop down using Javascript to populate the drop down with a default "Please Select" option. Note the value of the default option is often set to "" or 0. This is used to validate the drop down field.  If the value is "" or 0 the user probably did not make a selection. </p>
+    <p>
+        <label for="selectProduct3">Select a Product:</label>
+        <select name="selectProduct3" id="selectProduct3" onchange="displaySelectInformation('selectProduct3',3)">
+            <option value="">Please Select a Product</option>
+            <script>
+                for(let x=0; x<productNames.length; x++){
+                    document.write("<option value='" + productNumbers[x] + "''>" + productNames[x] + "</option>");
+                }
+            </script>
+        </select>
+    </p>
+
+    <h3>Example #3 Results</h3>
+    <p>The index of the selected option: <span id="displayIndex3"></span></p>
+    <p>The value of the selected option: <span id="displayValue3"></span></p>
+    <p>The text of the selected option: <span id="displayText3"></span></p>
+
+</body>
+</html>

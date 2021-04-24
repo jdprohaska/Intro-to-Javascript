@@ -1,0 +1,195 @@
+<!doctype html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV221 Intro Javascript</title>
+
+<style>
+
+  body {
+    background-color: #2a2b2a;
+    background-image: linear-gradient(to bottom right, #2a2b2a, #0a2463);
+  }
+
+div#container	{
+	width:960px;
+	margin:10% auto;
+	padding:10px;
+	background-color:#b5db81;	
+	border:5px solid black;
+  border-radius: 15px;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #83781b;
+  background-image: linear-gradient(to bottom right, #2a2b2a, #83781b);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 15px;
+  
+}
+
+
+
+
+
+
+</style>
+
+<script>	
+
+	var studentName = "";	//global variable to be used later
+	var studentEmail = "";	//global variable to be used later
+
+
+
+	
+	
+	
+
+	function displayEmailName() {
+		
+		var atSymbol = 0;		//local variable that will store the location of the @ symbol
+		var emailNameOnly = "";	//local variable that will store the value of the name portion of the email address
+		
+		studentEmail.indexOf("@");	
+		
+		alert( "Email name: " + studentEmail.substr(?,atSymbol) );
+		
+	}
+	
+	displayEmailName();
+
+</script>
+
+
+
+</head>
+
+<body>
+<div id="container">
+
+  <h1>WDV221 Intro Javascript</h1>
+  <h2>Unit-3 Functions</h2>
+
+  <p>Tasks:  </p>
+  <p>1. Run the displayGreeting( ) as a run time script.  </p>
+  <script>
+    
+    function displayGreeting() {
+		
+		alert ("Hello! Welcome to WDV221 Intro Javascript");
+			
+  }
+  
+    displayGreeting();
+    
+    
+    </script>
+  <p>2. Run the getStudentName( ) as a run time script.</p>
+    <script>
+      
+      function getstudentName() {
+		studentName = prompt("Please enter your name");	
+  }
+  
+     getstudentName();
+      
+      </script>
+
+  <p>3. Write a function called getStudentEmail( ). The function should use the prompt( ) to ask the user to enter their DMACC Email address. Store the returned valued in the studentEmail variable that has already been defined.</p>
+  <p>4. Run the getStudentEmail( ) as a run time script.</p>
+  <script>
+  function getStudentEmail() {
+			
+			studentEmail = prompt("Enter your Student Email:");//3. function to get student email
+			
+		}
+	  	
+		 getStudentEmail();
+  
+  
+  </script>
+
+
+
+  
+  <p>5. Write a function called displayEmail( ). The function will display the studentEmail variable with a message &quot;Student Email:&quot; in an alert. The button below will call the function when clicked.</p>
+  
+  <script>
+    function displayEmail() {
+			alert("Student Email: " + studentEmail);
+			
+		}
+    
+    </script>
+  
+  <p>
+	<input class="button" type="button" name="button" id="button" value="Display Email" onClick="displayEmail()">
+  </p>
+  <p>6. Complete the function called printStudentInfo( ). The function should write the studentName and studentEmail to the web page. Each in their own paragraph.  </p>
+  
+  <script>
+    function printStudentInfo(){
+  document.write("Student name:" + studentName );
+	document.write("<br>Student email:" + studentEmail);
+    }
+
+    printStudentInfo();
+  
+  </script>
+  
+  
+  <p>7. Complete the displayEmailName( ). The function should display the name portion of the studentEmail variable. Do not include the @ symbol in the result. </p>
+
+  <script>
+    function displayEmailName() {
+		
+		let atSymbol = studentEmail.indexOf("@");		
+		let emailNameOnly = studentEmail.slice(0, atSymbol);	
+			
+		
+		alert( "Email name is: " +  emailNameOnly);
+		
+		
+	}
+    
+    
+    
+    </script>
+
+
+  <p>Modify the following button to call the displayEmailName( ) with a click event handler.</p>
+  <p>
+    <input class="button" type="button" name="button2" id="button2" value="Display Email Name" onclick="displayEmailName()">
+  </p>
+  <p>8. Write a function called displayEmailServer( ). The function will display that portion of the studentEmail that follows the @ symbol. Do not include the @ symbol in the result.</p>
+    <script>
+      function displayEmailServer() {
+		
+		let atSymbol = studentEmail.indexOf("@");	
+		let emailServer = studentEmail.slice(atSymbol+1);	
+			
+		
+		alert( "Email Server name is: " +  emailServer);
+		
+	}
+      
+      
+      </script>
+  
+  
+  <p>9. Fix the  button element that will run the displayEmailServer( ) with a click event handler.</p>
+  <p>
+    <input class="button" type="button" name="button3" id="button3" value="Display Email Server" onclick="displayEmailServer()">
+  </p>
+  <p>&nbsp;</p>
+</div>
+
+<h2>&nbsp;</h2>
+</body>
+</html>

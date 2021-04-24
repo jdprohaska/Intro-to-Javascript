@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript guessing game</title>
+</head>
+<script>
+    //create secretNumber
+    let secretNumber = 4;
+    // ask user for guess
+    let stringGuess = prompt("guess a number");
+    let guess = Number(stringGuess);
+
+    // check if guess is right
+    if (guess === secretNumber) {
+        alert("you got it right!");
+    }
+    //otherwise, Check if higher
+    else if(guess > secretNumber) {
+        alert("too high. Guess again");
+    }
+    //otherwise, check if lower
+    //else if(Number(guess) < secretNumber)
+    else {
+        alert("too low. Guess again");
+    }
+
+
+
+
+
+
+</script>
+
+<body>
+
+</body>
+
+</html>

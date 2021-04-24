@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>textfield example</title>
+    <script>
+
+        function getFirstName() {
+            alert("inside getFirstName()");
+            let inFName = document.querySelector("#firstName").value;
+            console.log("firstName = " + inFName);
+             }
+
+             function setFirstName (inName) {
+                alert("inside setFirstName()");
+                document.querySelector("#firstName").value = inName;
+    
+             }
+
+             function displayName() {
+                 alert("inside displayName");
+             }
+
+             
+
+
+
+    </script>
+</head>
+<body>
+    <h1>WDV221 Intro Javascript</h1>
+    <h2>Textfield Processing Examples</h2>
+    <form method="" action="#">
+        <p>
+            <label>First Name
+                <input type="text" name="firstName" id="firstName">
+            </label>
+
+
+
+        </p>
+            <p>
+                <input type="reset" value="reset">
+                <input type="button" name="submit" value="submit" onclick="getFirstName()">
+                <input type="button" name="setName" value="set First Name" onclick="setFirstName('justin')">
+                <input type="button" name="displayName" value="Display Name" onclick="displayName()">
+
+
+            </p>
+
+
+
+
+    </form>
+
+    <p>
+        Display the Name: <span></span>
+
+    </p>
+    
+</body>
+</html>
+
+<!--
+-click submit
+-call getName()
+-Get value of text object
+ -console.log the value
+-->

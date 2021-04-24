@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this kinda stuff</title>
+
+    <script>
+
+
+        function changeH1 (inColor) {
+            //alert ("inside changeH1()");
+            document.querySelector("h1").style.backgroundColor = inColor;
+        }
+        
+        function changeH1Color (inColor) {
+            //alert ("inside changeH1Color()");
+            document.querySelector("h1").style.color = inColor;
+        }
+
+        function changeH2 (inColor) {
+           // alert("inside changeH2 ()");
+            document.querySelector("h2").style.backgroundColor = inColor;
+        }
+
+        function setupJavascript(){
+            //this function should run after the page has fully loaded
+            alert("inside setupJavascript()");
+            document.querySelector ("#buttonTwo") .onclick = function () {
+            changeH2('yellow'); //run function when button is clicked.
+        }
+        }
+
+
+
+    </script>
+
+    
+
+</head>
+<body onload="setupJavascript()">
+
+
+    <h1>Intro to Javascript</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque maiores aperiam est, quibusdam consequatur, pariatur possimus, soluta porro doloremque placeat quae suscipit laudantium laborum distinctio. Voluptas reprehenderit esse earum? Placeat.</p>
+    <button onclick="changeH1('red');"
+    onmouseover="changeH1Color('green');">button 1</button>
+    <h2>Javascript is my friend</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro cupiditate ea, temporibus vitae maxime nihil numquam iusto modi libero sed rem asperiores fuga blanditiis molestias? Tempore maxime corporis at ullam!</p>
+    <button id="buttonTwo">button 2</button>
+
+
+    
+
+
+
+</body>
+
+
+
+</html>
